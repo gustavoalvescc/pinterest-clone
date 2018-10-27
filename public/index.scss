@@ -1,0 +1,76 @@
+$shadow-ud-1: -1px -1px 4px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.24);
+$shadow-ud-2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+body{
+    margin: 0;
+
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+    
+        .navbar{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            box-shadow: $shadow-ud-1;
+            min-height: 56px;
+            padding: 0 30px 0 30px;
+
+            .user-info{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                .user-pic-thumbnail{
+                    margin-right: 16px;
+                    
+                    img{
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+            }
+
+            .user-actions{
+
+            }
+        }
+
+        .wall{
+            display: flex;
+            flex-direction: row;
+
+            padding: 30px;
+
+            .pin{
+                display: flex;
+                flex-direction: column;
+
+                box-shadow: $shadow-ud-1;
+                margin-right: 30px;
+                padding: 16px;
+                width: min-content;
+
+                .pin-image{
+                    margin-bottom: 12px;
+
+                    img{
+                        height: 200px;
+                        width: 200px;
+                    }
+                }
+
+                .pin-description{
+
+                }
+
+                .pin-actions{
+                    align-self: flex-end;
+                    margin-top: 12px;
+                }
+            }
+        }
+    }
+}
