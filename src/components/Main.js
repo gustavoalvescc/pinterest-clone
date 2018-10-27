@@ -11,7 +11,6 @@ export class Main extends React.Component{
         <Switch>
           <Route exact path="/" component={Login} />
           <Route path="/home" component={Home} />
-          <Route path="/profile" component={Profile} />
         </Switch>
       </main>
     );

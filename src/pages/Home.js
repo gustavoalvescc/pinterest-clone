@@ -1,84 +1,30 @@
 import React from 'react';
-import logo from '../logo.svg';
+import {NavBar} from '../components/NavBar';
+import {Pin} from '../components/Pin';
 
 export class Home extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {pins: []};
+  }
+
   render(){
     return (
       <div className="wrapper">
-          <div className="navbar">
-              <div className="user-info">
-                  <div className="user-pic-thumbnail">
-                      <img src="https://picsum.photos/200/?random?image=0" />
-                  </div>
-      
-                  <div className="user-name">
-                      <span>José Rogério B. Filho</span>
-                  </div>
-              </div>
-
-              <div className="user-actions">
-                  <span>LOG OUT</span>
-              </div>
-          </div>
-  
+        <NavBar/>
           <div className="wall">
-              <div className="pin">
-                  <div className="pin-image">
-                      <img src="https://picsum.photos/200/?random?image=1" />
-                  </div>
-
-                  <div className="pin-description">
-                      <span>Lorem ipsum et dolorem</span>
-                  </div>
-
-                  <div className="pin-actions">
-                      DELETE
-                  </div>
-              </div>
-
-              <div className="pin">
-                  <div className="pin-image">
-                      <img src="https://picsum.photos/200/?random?image=2" />
-                  </div>
-
-                  <div className="pin-description">
-                      <span>Lorem ipsum et dolorem</span>
-                  </div>
-
-                  <div className="pin-actions">
-                      DELETE
-                  </div>
-              </div>
-
-              <div className="pin">
-                  <div className="pin-image">
-                      <img src="https://picsum.photos/200/?random?image=3" />
-                  </div>
-
-                  <div className="pin-description">
-                      <span>Lorem ipsum et dolorem</span>
-                  </div>
-
-                  <div className="pin-actions">
-                      DELETE
-                  </div>
-              </div>
-
-              <div className="pin">
-                  <div className="pin-image">
-                      <img src="https://picsum.photos/200/?random?image=4" />
-                  </div>
-
-                  <div className="pin-description">
-                      <span>Lorem ipsum et dolorem</span>
-                  </div>
-
-                  <div className="pin-actions">
-                      DELETE
-                  </div>
-              </div>
+             {this.state.pins.map(pin => <Pin key={"pin_" + pin._id} src={pin.image_link} description={pin.description}/>)}
+             {this.state.pins.length}
           </div>
       </div>
     );
+  }
+
+  componentDidMount(){
+    fetch("http://localhost:3000/api/pin").then((response)=>{
+      return response.json();
+    }).then(pins => {
+      this.setState({pins});
+    });
   }
 };
