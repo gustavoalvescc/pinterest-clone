@@ -1,13 +1,21 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+html, body, #root, .app-wrapper, main, .login-container {
+  height: 100%; }
+
 body {
+  font-family: 'Roboto', sans-serif;
   margin: 0; }
   body .wrapper {
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    background: linear-gradient(to right, white, rgba(70, 83, 98, 0.25));
+    height: 100%; }
     body .wrapper .navbar {
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
+      background-color: #465362;
       box-shadow: -1px -1px 4px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.24);
       min-height: 56px;
       padding: 0 30px 0 30px; }
@@ -18,16 +26,23 @@ body {
         body .wrapper .navbar .user-info .user-pic-thumbnail {
           margin-right: 16px; }
           body .wrapper .navbar .user-info .user-pic-thumbnail img {
+            border-radius: 100%;
             width: 30px;
             height: 30px; }
+        body .wrapper .navbar .user-info .user-name {
+          color: white;
+          font-size: 14px;
+          font-weight: 400; }
     body .wrapper .wall {
       display: flex;
       flex-direction: row;
+      height: 100%;
       padding: 30px; }
       body .wrapper .wall .pin {
         display: flex;
         flex-direction: column;
         box-shadow: -1px -1px 4px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.24);
+        height: min-content;
         margin-right: 30px;
         padding: 16px;
         width: min-content; }
@@ -39,3 +54,46 @@ body {
         body .wrapper .wall .pin .pin-actions {
           align-self: flex-end;
           margin-top: 12px; }
+  body .login-container {
+    background: linear-gradient(to right, white, rgba(70, 83, 98, 0.25));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+    body .login-container .app-name {
+      color: #465362;
+      font-size: 32px;
+      font-weight: 300;
+      margin-bottom: 42px; }
+  body .input-container {
+    display: flex;
+    flex-direction: column; }
+    body .input-container label {
+      font-size: 12px;
+      margin-bottom: 4px; }
+    body .input-container input {
+      background: transparent;
+      border-width: 0 0 1px 0;
+      border-color: #465362;
+      font-size: 16px;
+      margin-bottom: 24px; }
+      body .input-container input:focus {
+        border-width: 0 0 1px 0;
+        border-color: #ED254E;
+        box-shadow: none;
+        outline: none; }
+    body .input-container:focus-within label {
+      color: #ED254E; }
+    body .input-container + .btn {
+      margin-top: 12px; }
+  body .btn {
+    border-radius: 4px;
+    cursor: pointer; }
+    body .btn.btn-raised {
+      box-shadow: -1px -1px 4px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.24);
+      font-size: 14px;
+      font-weight: 400;
+      padding: 8px 16px 8px 16px; }
+      body .btn.btn-raised.btn-primary {
+        background-color: #ED254E;
+        color: white; }

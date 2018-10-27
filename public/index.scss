@@ -1,12 +1,31 @@
+// fontes
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+
+// cores
+$primary: #ED254E;
+$gray: #465362;
+
+// gradientes
+$gradient-light-gray: linear-gradient(to right, white , rgba($gray, 0.25));
+
+// sombras
 $shadow-ud-1: -1px -1px 4px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.24);
 $shadow-ud-2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 
+html, body, #root, .app-wrapper, main, .login-container{
+    height: 100%;
+}
+
 body{
+    font-family: 'Roboto', sans-serif;
     margin: 0;
 
     .wrapper{
         display: flex;
         flex-direction: column;
+
+        background: $gradient-light-gray;
+        height: 100%;
     
         .navbar{
             display: flex;
@@ -14,6 +33,7 @@ body{
             align-items: center;
             justify-content: space-between;
 
+            background-color: $gray;
             box-shadow: $shadow-ud-1;
             min-height: 56px;
             padding: 0 30px 0 30px;
@@ -27,9 +47,16 @@ body{
                     margin-right: 16px;
                     
                     img{
+                        border-radius: 100%;
                         width: 30px;
                         height: 30px;
                     }
+                }
+
+                .user-name{
+                    color: white;
+                    font-size: 14px;
+                    font-weight: 400;
                 }
             }
 
@@ -42,6 +69,7 @@ body{
             display: flex;
             flex-direction: row;
 
+            height: 100%;
             padding: 30px;
 
             .pin{
@@ -49,6 +77,7 @@ body{
                 flex-direction: column;
 
                 box-shadow: $shadow-ud-1;
+                height: min-content;
                 margin-right: 30px;
                 padding: 16px;
                 width: min-content;
@@ -71,6 +100,79 @@ body{
                     margin-top: 12px;
                 }
             }
+        }
+    }
+
+    .login-container{
+        background: $gradient-light-gray;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .app-name{
+            color: $gray;
+            font-size: 32px;
+            font-weight: 300;
+            margin-bottom: 42px;
+        }
+    }
+
+    // forms
+    .input-container{
+        display: flex;
+        flex-direction: column;
+
+        label{
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+
+        input{
+            background: transparent;
+            border-width: 0 0 1px 0;
+            border-color: $gray;
+            font-size: 16px;
+            margin-bottom: 24px;
+
+            &:focus{
+                border-width: 0 0 1px 0;
+                border-color: $primary;
+                box-shadow: none;
+                outline: none;
+            }
+        }
+
+        &:focus-within{
+            label{
+                color: $primary;
+            }
+        }
+
+        & + .btn{
+            margin-top: 12px;
+        }
+    }
+
+    // buttons
+    .btn{
+        border-radius: 4px;
+        cursor: pointer;
+
+        &.btn-raised{
+            box-shadow: $shadow-ud-1;
+            font-size: 14px;
+            font-weight: 400;
+            padding: 8px 16px 8px 16px;
+
+            &.btn-primary{
+                background-color: $primary;
+                color: white;
+            }
+        }
+
+        &btn-flat{
+
         }
     }
 }
