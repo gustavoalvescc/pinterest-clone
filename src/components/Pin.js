@@ -6,17 +6,19 @@ export class Pin extends React.Component{
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick(){
-    console.log("TO-DO Delete PIN");
+    let id = this.props.id;
+    this.props.handleClick(id);
   }
 render(){
+  const props = this.props;
   return (
     <div className="pin">
       <div className="pin-image">
-      <img src={this.props.src} />
+      <img alt="Selected" src={props.src} />
       </div>
 
       <div className="pin-description">
-      <span>{this.props.description}</span>
+      <span>{props.description}</span>
       </div>
 
       <div className="pin-actions">

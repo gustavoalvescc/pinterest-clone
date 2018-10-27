@@ -6,7 +6,7 @@ export class NavBar extends React.Component{
         <nav className="navbar">
             <div className="user-info">
                 <div className="user-pic-thumbnail">
-                    <img src="https://picsum.photos/200/?random?image=0" />
+                    <img alt="Random" src="https://picsum.photos/200/?random?image=0" />
                 </div>
     
                 <div className="user-name">
