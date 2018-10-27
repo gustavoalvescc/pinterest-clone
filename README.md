@@ -6,4 +6,3 @@
   <li><strong>Gustavo Alves:</strong>  <a href="https://www.linkedin.com/in/gustavoalvescc/" target="_blank">Full-stack Developer</a></li>
   <li><strong>José Rogério:</strong>  <a href="https://www.linkedin.com/in/joserogeriofilho/" target="_blank">Frontend Developer</a></li>
 </ul>
-
