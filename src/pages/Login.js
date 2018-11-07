@@ -6,13 +6,12 @@ export class Login extends React.Component{
     super(props);
     this.handleLogin = this.handleLogin.bind(this);
   }
-  handleLogin(){
+  handleLogin(token, user){
+    localStorage.setItem('auth-token',token);
+    localStorage.setItem('user',user);
     this.props.history.push("/home");
   }
-
-
   googleResponse = (response) => {
-    console.log('beleza '+ response.accessToken);
     const tokenBlob = JSON.stringify({access_token: response.accessToken}, {type : 'application/json'});
     const options = {
         method: 'POST',
@@ -20,14 +19,12 @@ export class Login extends React.Component{
         mode: 'cors',
         cache: 'default'
     };
-    //var token = 'ya29.GlxHBv9zL_v6Fo54g4lLz_8jKn-zVFL3fsEIbQtIGq0oec6GfXm9b8gzpLgVnWHu6sa9X4oF4s9EvmKOGy2JfQpGyWrIdzhSH6qlBUkQO3yWW6yqI-obaCRoj6lXMA';
     fetch(`http://localhost:3000/auth/google?access_token=${response.accessToken}`).then(r => {
-        console.log(r);
         const token = r.headers.get('x-auth-token');
         console.log('token: ', token)
         r.json().then(user => {
             if (token) {
-                this.setState({isAuthenticated: true, user, token})
+                this.handleLogin(token, user);
             }
         });
     })
