@@ -8,12 +8,8 @@ export class Main extends React.Component{
 
   render(){
     const _isLoggedIn = () => {
-      const history = createBrowserHistory();
-       const match = matchPath(history.location.pathname,  {path: '/timeline/:login'});
-  
-          const privateRoute = match === null;
-  
-      return (privateRoute && localStorage.getItem('auth-token')) === null;
+      
+      return (localStorage.getItem('auth-token')) === null;
     };
     return (
       <main>

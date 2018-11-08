@@ -10,9 +10,18 @@ export class Home extends React.Component{
   }
 
   handleDelete(id){
-    fetch(`http://localhost:3000/api/pin/${id}`, {method: 'delete'}).then( ()=>{
-      let arrayCopy = this.state.pins.filter(row => row._id !== id);
-      this.setState({pins: arrayCopy});
+
+    var headers = new Headers();
+    headers.append("authorization", `Bearer ${localStorage.getItem('auth-token')}`);
+    fetch(`http://localhost:3000/api/pin/${id}`,
+     {method: 'delete', headers}
+     ).then( (res)=>{
+      if(res.status == 200){ 
+        let arrayCopy = this.state.pins.filter(row => row._id !== id);
+        this.setState({pins: arrayCopy});
+      }{
+        //Handle error message
+      }
     }).catch((err) => {
       console.log(err);
     });
